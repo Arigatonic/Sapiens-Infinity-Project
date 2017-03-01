@@ -1,7 +1,7 @@
 Author: Lior G  
 
 #Next Objective: 
-__Adding Spring Features & SOAP __
+__ Adding Spring Features & SOAP __
 
 # Latest Updates
 ##02.03.17:##
