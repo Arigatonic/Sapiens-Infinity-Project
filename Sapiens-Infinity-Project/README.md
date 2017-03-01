@@ -1,15 +1,19 @@
 Author: Lior G  
 
 #Next Objective: 
-__Finishing Web-Services Layer__
+__Adding Spring Features & SOAP __
 
 # Latest Updates
+##02.03.17:##
+* Finished Web-Services Layer
+* Adding a com.social.web.utils package to support the web-services. 
+  This includes: EntityManagerFactory Singleton & Service Control to manage better the connection with the Service layer   
 
-##24.02.17##
+##24.02.17:##
 * Finished Service layer tests.
 * Added 'isActive' Field to User to mark up user existence (deletion of user will mark isActive as false). 
 
-##22.02.17: ##
+##22.02.17:##
 * changing Service layer to work with types which are not necesserly Strings
 * Almost Finishing Service layer Tests 
 * Adding Named-Queries 
