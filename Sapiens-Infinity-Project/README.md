@@ -26,7 +26,6 @@ Social Network Project. The idea is to a create a server that permits users to c
 # Project References: 
 
 Initial Class Diagram: https://drive.google.com/file/d/0B2NNxddUDrBnNk03U2kyR2JVZlk/view?usp=sharing
-
 Initial Data Diagram: https://drive.google.com/file/d/0B2NNxddUDrBnOTNsY3YzeFFkcVk/view?usp=sharing  
 
 
