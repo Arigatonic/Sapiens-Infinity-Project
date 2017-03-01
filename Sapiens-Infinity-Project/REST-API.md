@@ -3,7 +3,7 @@
 Below is the Data manipulation available by the Project API
 
 ##Group Elements##
- *get:* 
+ *get:* cc
  /Groups -> returns all listed Groups
  /Groups/{id} -> returns Group of id
  /Groups/{id}/Users -> returns Groups of Group of id
