@@ -4,14 +4,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 import com.social.references.DBRef;
+
+@XmlRootElement(name = "USER")
+@XmlType(propOrder = {"firstName", "lastName", "isActive"})
 
 @Entity 
 @NamedQueries({
     @NamedQuery(name=User.GET_All_USERS,
                 query="SELECT u FROM User u WHERE IS_ACTIVE is true")
-}) 
+})
+
 @Table(name = DBRef.USERS_TABLE)
 public class User {
 
@@ -60,7 +68,7 @@ public class User {
     public void removePost(Post pst){
     	posts.remove(pst);    	
     }
-	
+    @XmlAttribute
 	@Id 
     @Column(name = DBRef.USER_ID)
     @GeneratedValue(strategy = GenerationType.AUTO) 
@@ -84,12 +92,13 @@ public class User {
 		this.userID = usrID;
 	}
 	
+	@XmlTransient
     @OneToMany(targetEntity=Post.class)    
     @JoinColumn(name=DBRef.USER_ID, referencedColumnName=DBRef.USER_ID)
 	public Set<Post> getPosts() {
 		return posts;
 	}
-	
+    @XmlTransient
     @ManyToMany(mappedBy="users")
 	public Set<Group> getGroups() {
 		return groups;

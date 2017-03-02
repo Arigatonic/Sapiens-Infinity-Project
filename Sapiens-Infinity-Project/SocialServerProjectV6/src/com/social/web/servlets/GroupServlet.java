@@ -44,6 +44,7 @@ public class GroupServlet extends HttpServlet {
         super();
     }
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServiceConrol ctrl = new ServiceConrol(request, response);
 		String res = null;
