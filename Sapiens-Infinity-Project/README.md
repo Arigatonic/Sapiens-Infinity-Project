@@ -7,7 +7,7 @@ __Adding Spring Features & SOAP__
 ##02.03.17:##
 * Finished Web-Services Layer
 * Adding a com.social.web.utils package to support the web-services. 
-  This mainly includes Service Control to manage better the connection with the Service layer with minimum Code Redundency.  
+  This mainly includes Service Control to manage better the connection with the Service layer with a minimum code redundency.  
 
 ##24.02.17:##
 * Finished Service layer tests.
