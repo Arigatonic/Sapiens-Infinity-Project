@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import com.social.jpa.*;
 
 public class SocialDao {
 	
-    EntityManager em;
-    EntityManagerFactory emf;
+    private EntityManager em;
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("SocialServer");
            
-    public SocialDao(EntityManagerFactory emf){
-		this.emf = emf;
+    public SocialDao(){		
 		this.em = emf.createEntityManager();		
     }
     

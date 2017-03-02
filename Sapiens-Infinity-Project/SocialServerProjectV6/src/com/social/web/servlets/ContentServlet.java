@@ -2,8 +2,6 @@ package com.social.web.servlets;
 
 import java.io.IOException;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.social.web.utils.EntityFactorySingleton;
 import com.social.web.utils.ServiceConrol;
 
 /********************************************
@@ -29,9 +26,6 @@ import com.social.web.utils.ServiceConrol;
 public class ContentServlet extends HttpServlet {
 	private Gson gsn = new Gson();
 	
-	private static final EntityManagerFactory emf = 
-			EntityFactorySingleton.getInstance();
-
 	private static final long serialVersionUID = 1L;
        
     public ContentServlet() {
@@ -40,7 +34,7 @@ public class ContentServlet extends HttpServlet {
     
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServiceConrol ctrl = new ServiceConrol(request, response, emf);
+		ServiceConrol ctrl = new ServiceConrol(request, response);
 		String res = null;
 		
 		try {
@@ -55,7 +49,7 @@ public class ContentServlet extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-		ServiceConrol ctrl = new ServiceConrol(request, response, emf);
+		ServiceConrol ctrl = new ServiceConrol(request, response);
 		int usrID = Integer.parseInt(request.getParameter("usrID"));
 		int grpID = Integer.parseInt(request.getParameter("grpID"));
 		String content = request.getParameter("content");
@@ -75,7 +69,7 @@ public class ContentServlet extends HttpServlet {
     @Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-		ServiceConrol ctrl = new ServiceConrol(request, response, emf);
+		ServiceConrol ctrl = new ServiceConrol(request, response);
 		String res = null;
 		
 		try {

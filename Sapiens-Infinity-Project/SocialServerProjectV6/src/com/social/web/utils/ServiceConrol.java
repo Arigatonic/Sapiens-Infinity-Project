@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,12 +27,12 @@ public class ServiceConrol {
 
 	DefinedServices requestedService;
 	
-	public ServiceConrol(HttpServletRequest request, HttpServletResponse response, EntityManagerFactory emf) throws IOException {
+	public ServiceConrol(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		this.pathInfoElements = getArgsList(request);
 		this.id = setID(pathInfoElements);
 		this.requestedService = setDefinedServices(pathInfoElements);
-		this.sns = new SocialNetworkService(emf);
+		this.sns = new SocialNetworkService();
 		this.out = response.getWriter();
 
 	}

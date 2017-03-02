@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import javax.persistence.EntityManagerFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.social.web.utils.EntityFactorySingleton;
 import com.social.web.utils.ServiceConrol;
 
 
@@ -41,15 +39,13 @@ public class GroupServlet extends HttpServlet {
     
 	private Gson gsn = new Gson();
 
-	private static final EntityManagerFactory emf = 
-				EntityFactorySingleton.getInstance();
-	
+
 	public GroupServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServiceConrol ctrl = new ServiceConrol(request, response, emf);
+		ServiceConrol ctrl = new ServiceConrol(request, response);
 		String res = null;
 
 		try {
@@ -81,7 +77,7 @@ public class GroupServlet extends HttpServlet {
 	
 	@Override	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServiceConrol ctrl = new ServiceConrol(request, response, emf);
+		ServiceConrol ctrl = new ServiceConrol(request, response);
 		BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
 		String data = br.readLine();
 		
@@ -96,7 +92,7 @@ public class GroupServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ServiceConrol ctrl = new ServiceConrol(request, response, emf);		
+		ServiceConrol ctrl = new ServiceConrol(request, response);		
 		String res = null;
 
 		try {
@@ -116,7 +112,7 @@ public class GroupServlet extends HttpServlet {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ServiceConrol ctrl = new ServiceConrol(request, response, emf);
+		ServiceConrol ctrl = new ServiceConrol(request, response);
 		String res = null;
 
 		try {

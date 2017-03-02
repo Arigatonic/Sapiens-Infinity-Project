@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.EntityManagerFactory;
-
 import com.social.dao.SocialDao;
 import com.social.jpa.Group;
 import com.social.jpa.Post;
@@ -16,8 +14,8 @@ public class SocialNetworkService {
 	
 	SocialDao dao;
 	      	
-	public SocialNetworkService(EntityManagerFactory emf){
-		dao = new SocialDao(emf);
+	public SocialNetworkService(){
+		dao = new SocialDao();
 	}
 	
 	@SuppressWarnings("unchecked")
