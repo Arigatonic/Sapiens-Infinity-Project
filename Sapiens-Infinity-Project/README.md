@@ -7,7 +7,7 @@ __Adding Spring Features & SOAP__
 ##02.03.17:##
 * Finished Web-Services Layer
 * Adding a com.social.web.utils package to support the web-services. 
-  This includes: EntityManagerFactory Singleton & Service Control to manage better the connection with the Service layer   
+  This mainly includes Service Control to manage better the connection with the Service layer with minimum Code Redundency.  
 
 ##24.02.17:##
 * Finished Service layer tests.
