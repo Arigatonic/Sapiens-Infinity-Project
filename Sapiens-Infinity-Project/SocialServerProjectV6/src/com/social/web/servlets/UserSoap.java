@@ -1,35 +1,44 @@
 package com.social.web.servlets;
 
-import java.io.IOException;
+import java.io.StringWriter;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 
 import com.google.gson.Gson;
-import com.social.web.utils.ServiceConrol;
+import com.social.jpa.User;
+import com.social.services.SocialNetworkService;
 
 public class UserSoap {
 
 	private Gson gsn = new Gson();
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ServiceConrol ctrl = new ServiceConrol(request, response);
+	public String getUser(String usrID) {
+
+		SocialNetworkService sns = new SocialNetworkService();
 		String res = null;
 
 		try {
+			User usr = sns.getUser(Integer.parseInt(usrID));
 
-			res = gsn.toJson(ctrl.getSNS().getUser(ctrl.getID()));
+			JAXBContext context = JAXBContext.newInstance(User.class);
+			Marshaller m = context.createMarshaller();
+			// for pretty-print XML in JAXB
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+			m.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+			java.io.StringWriter sw = new StringWriter();
+
+			m.marshal(usr, sw);
 			
-			response.setContentType("application/json");  
-
+			res = sw.toString();			
+			
 		} catch (Exception e) {
-			res = ctrl.setError(e, response);	
+			res = e.getMessage();
+			e.printStackTrace();
 		}
-		finally{			
-			ctrl.sendResults(ctrl.getOut(),res);
-		}
+
+		return res;
+
 	}
-		
+
 }

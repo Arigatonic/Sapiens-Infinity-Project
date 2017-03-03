@@ -18,9 +18,6 @@ import com.social.services.SocialNetworkService;
 
 public class ServiceBasicTest {
 	
-	static final EntityManagerFactory emf = 
-			 Persistence.createEntityManagerFactory("SocialServer");
-	
 	SocialNetworkService sd = new SocialNetworkService();
 	
 	Gson gsn = new Gson();	

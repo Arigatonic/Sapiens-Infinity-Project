@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 import com.social.references.DBRef;
 
 @XmlRootElement(name = "USER")
-@XmlType(propOrder = {"firstName", "lastName", "isActive"})
+@XmlType(propOrder = {"firstName", "lastName"})
 
 @Entity 
 @NamedQueries({
@@ -43,7 +43,7 @@ public class User {
     	isActive = true;
     }        
 
-    
+    @XmlTransient
 	@Column(name = DBRef.IS_ACTIVE, nullable = false)
 	public boolean isActive() {
 		return isActive;
