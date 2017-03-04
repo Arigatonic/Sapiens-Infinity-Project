@@ -1,7 +1,6 @@
 package com.social.web.servlets;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +35,7 @@ public class UserServlet extends HttpServlet {
 	private Gson gsn = new Gson();
 
 	private static final long serialVersionUID = 1L;
-
+	
 	public UserServlet() {
 		super();
 	}    
