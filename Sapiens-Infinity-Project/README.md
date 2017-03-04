@@ -1,9 +1,14 @@
 Author: Lior G  
 
 #Next Objective: 
-__Adding Spring Features & SOAP__
+__Adding Spring Features__
 
 # Latest Updates
+
+##04.03.17:##
+* User SOAP Web Service has been issued. Currently provide getUser(int) method. 
+* SOAP is using JAXB marshalling to return information. 
+
 ##02.03.17:##
 * Finished Web-Services Layer
 * Adding a com.social.web.utils package to support the web-services. 
