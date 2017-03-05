@@ -6,17 +6,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.social.jpa.entities.*;
 
 public class SocialDao {
 	
     private EntityManager em;
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("SocialServer");
-           
-    public SocialDao(){		
-		this.em = emf.createEntityManager();		
-    }
-    
+               
+    @Autowired
     public void setEntityManager(EntityManager em){
     	this.em = em;
     }
