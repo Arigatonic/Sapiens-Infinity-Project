@@ -54,7 +54,7 @@ public class Post {
 
 	@Id 
     @Column(name = DBRef.POST_ID, nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO) 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
 	public int getPostID() {
 		return postID;
 	}

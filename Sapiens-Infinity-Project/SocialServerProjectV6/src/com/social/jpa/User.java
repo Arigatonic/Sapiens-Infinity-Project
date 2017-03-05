@@ -71,7 +71,7 @@ public class User {
     @XmlAttribute
 	@Id 
     @Column(name = DBRef.USER_ID)
-    @GeneratedValue(strategy = GenerationType.AUTO) 
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
 	public int getUserID() {
 		return userID;
 	}

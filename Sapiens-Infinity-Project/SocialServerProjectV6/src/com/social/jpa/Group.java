@@ -44,7 +44,7 @@ public class Group {
     
 	@Id 
     @Column(name = DBRef.GROUP_ID)
-	@GeneratedValue(strategy = GenerationType.AUTO) 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	public int getGroupID() {
 		return group_id;
 	}

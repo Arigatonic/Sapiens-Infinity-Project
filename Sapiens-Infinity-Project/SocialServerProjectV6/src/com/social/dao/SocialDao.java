@@ -17,6 +17,10 @@ public class SocialDao {
 		this.em = emf.createEntityManager();		
     }
     
+    public void setEntityManager(EntityManager em){
+    	this.em = em;
+    }
+    
 	public List<?> getAllUsers() throws IllegalArgumentException{
 		
 		return (em.createNamedQuery(User.GET_All_USERS)
