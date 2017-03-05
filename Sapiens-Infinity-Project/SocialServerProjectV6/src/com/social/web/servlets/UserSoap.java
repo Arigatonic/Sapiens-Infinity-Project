@@ -5,9 +5,14 @@ import java.io.StringWriter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import com.google.gson.Gson;
-import com.social.jpa.User;
+import com.social.jpa.entities.User;
+import com.social.jpa.utils.JPAConfigure;
 import com.social.services.SocialNetworkService;
+import com.social.web.utils.ServiceConrol;
 
 public class UserSoap {
 
@@ -15,12 +20,15 @@ public class UserSoap {
 
 	public String getUser(String usrID) {
 
-		SocialNetworkService sns = new SocialNetworkService();
+		SocialNetworkService sns;
 		String res = null;
 
 		try {
-			User usr = sns.getUser(Integer.parseInt(usrID));
-
+			
+			ServiceConrol ctrl = new ServiceConrol();
+			
+			User usr = ctrl.getSNS().getUser(Integer.parseInt(usrID));
+			
 			JAXBContext context = JAXBContext.newInstance(User.class);
 			Marshaller m = context.createMarshaller();
 			// for pretty-print XML in JAXB
