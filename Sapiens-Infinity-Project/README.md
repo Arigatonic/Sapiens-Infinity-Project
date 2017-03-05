@@ -1,9 +1,12 @@
 Author: Lior G  
 
 #Next Objective: 
-__Adding Spring Features__
+__Adding AOP Features__
 
 # Latest Updates
+
+##05.03.17
+* Spring Managment of Control was added in com.social.jpa.utils JPAConfigure
 
 ##04.03.17:##
 * User SOAP Web Service has been issued. Currently provide getUser(int) method. 
