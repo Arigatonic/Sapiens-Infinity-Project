@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.social.jpa.*;
+import com.social.jpa.entities.*;
 
 public class SocialDao {
 	

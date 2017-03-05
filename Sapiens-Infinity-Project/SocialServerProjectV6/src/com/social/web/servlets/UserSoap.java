@@ -6,7 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 
 import com.google.gson.Gson;
-import com.social.jpa.User;
+import com.social.jpa.entities.User;
 import com.social.services.SocialNetworkService;
 
 public class UserSoap {
