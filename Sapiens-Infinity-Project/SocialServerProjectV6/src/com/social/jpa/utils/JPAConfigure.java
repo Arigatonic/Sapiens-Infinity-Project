@@ -35,7 +35,7 @@ public class JPAConfigure {
 	}
 	
 	@Bean //singleton
-	public EntityManager entityManager(){
+	public synchronized EntityManager entityManager(){
 		return emf.createEntityManager();
 		
 	}

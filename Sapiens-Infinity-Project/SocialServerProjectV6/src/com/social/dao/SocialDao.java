@@ -23,13 +23,11 @@ public class SocialDao {
 		
 		return (em.createNamedQuery(User.GET_All_USERS)
 				  .getResultList());
-
 	}
 	
 	public List<?> getAllGroups() throws IllegalArgumentException{
 		return (em.createNamedQuery(Group.GET_ALL_GROUPS)
 				  .getResultList());
-
 	}
     
 	public void putUser(User usr){	
