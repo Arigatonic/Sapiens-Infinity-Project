@@ -213,7 +213,7 @@ public class SocialNetworkService {
 	}
 	
 	private void userCheck(User usr){
-		if (usr == null){
+		if (usr == null || usr.isActive() == false){
 			throw new IllegalArgumentException("User does not exist");
 		}
 	}

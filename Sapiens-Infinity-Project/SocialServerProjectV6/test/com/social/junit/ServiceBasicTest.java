@@ -32,10 +32,7 @@ public class ServiceBasicTest {
 	Post postSample = new Post(new Date(), usrSample, grpSample, "Test Post");
 	
 	int usrIDinDB;
-	int grpIDinDB;
-
-	
-		
+	int grpIDinDB;	
 	
 	public Post createRelatedPostUserAndGroup(){
 		
@@ -52,8 +49,7 @@ public class ServiceBasicTest {
 	@Before
 	public void initialize(){
 		
-		ctx = new AnnotationConfigApplicationContext(JPAConfigure.class);
-		
+		ctx = new AnnotationConfigApplicationContext(JPAConfigure.class);		
 		this.sd = ctx.getBean(SocialNetworkService.class);
 		
 	}

@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.math.NumberUtils;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.google.gson.Gson;
+import com.social.jpa.utils.JPAConfigure;
 import com.social.services.DefinedServices;
 import com.social.services.SocialNetworkService;
 
@@ -22,18 +25,32 @@ public class ServiceConrol {
 	private List<String> pathInfoElements;
 	private SocialNetworkService sns;
 	PrintWriter out;
-	
+
 	Gson gsn = new Gson();
 
 	DefinedServices requestedService;
+	private static final ApplicationContext ctx = new AnnotationConfigApplicationContext(JPAConfigure.class);
+	
+	public ServiceConrol() throws IOException {
+
+		initializeServiceBean();
+
+	}
 	
 	public ServiceConrol(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+		initializeServiceBean();
+		
 		this.pathInfoElements = getArgsList(request);
 		this.id = setID(pathInfoElements);
 		this.requestedService = setDefinedServices(pathInfoElements);
-		this.sns = new SocialNetworkService();
 		this.out = response.getWriter();
+
+	}
+	
+	private void initializeServiceBean(){
+		
+		this.sns = ctx.getBean(SocialNetworkService.class);
 
 	}
 	
