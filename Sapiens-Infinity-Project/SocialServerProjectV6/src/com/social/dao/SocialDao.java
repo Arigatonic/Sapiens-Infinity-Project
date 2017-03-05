@@ -6,28 +6,28 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.social.jpa.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.social.jpa.entities.*;
 
 public class SocialDao {
 	
     private EntityManager em;
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("SocialServer");
-           
-    public SocialDao(){		
-		this.em = emf.createEntityManager();		
+               
+    @Autowired
+    public void setEntityManager(EntityManager em){
+    	this.em = em;
     }
     
 	public List<?> getAllUsers() throws IllegalArgumentException{
 		
 		return (em.createNamedQuery(User.GET_All_USERS)
 				  .getResultList());
-
 	}
 	
 	public List<?> getAllGroups() throws IllegalArgumentException{
 		return (em.createNamedQuery(Group.GET_ALL_GROUPS)
 				  .getResultList());
-
 	}
     
 	public void putUser(User usr){	

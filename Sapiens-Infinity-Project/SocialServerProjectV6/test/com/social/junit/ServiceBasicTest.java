@@ -10,15 +10,20 @@ import java.util.Set;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.google.gson.Gson;
-import com.social.jpa.*;
+import com.social.jpa.entities.*;
+import com.social.jpa.utils.JPAConfigure;
 import com.social.services.SocialNetworkService;
 
 public class ServiceBasicTest {
 	
-	SocialNetworkService sd = new SocialNetworkService();
+	private ApplicationContext ctx;
+	SocialNetworkService sd;
 	
 	Gson gsn = new Gson();	
 		
@@ -27,8 +32,7 @@ public class ServiceBasicTest {
 	Post postSample = new Post(new Date(), usrSample, grpSample, "Test Post");
 	
 	int usrIDinDB;
-	int grpIDinDB;
-		
+	int grpIDinDB;	
 	
 	public Post createRelatedPostUserAndGroup(){
 		
@@ -40,6 +44,14 @@ public class ServiceBasicTest {
 		Post pstRes = sd.getPost(pstID);
 				
 		return pstRes;
+	}
+	
+	@Before
+	public void initialize(){
+		
+		ctx = new AnnotationConfigApplicationContext(JPAConfigure.class);		
+		this.sd = ctx.getBean(SocialNetworkService.class);
+		
 	}
 
 	
