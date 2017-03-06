@@ -1,12 +1,13 @@
 Author: Lior G  
 
 #Next Objective: 
-__Adding AOP Features__
+__Adding Mock & BDD features__
 
 # Latest Updates
 
-##05.03.17
-* Spring Managment of Control was added in com.social.jpa.utils JPAConfigure
+##06.03.17
+* Spring is now fully supporting JPA (!)
+* Logger Base Aspect is now have been issued. 
 
 ##04.03.17:##
 * User SOAP Web Service has been issued. Currently provide getUser(int) method. 
