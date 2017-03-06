@@ -1,7 +1,8 @@
 Author: Lior G  
 
 #Next Objective: 
-__Adding Mock & BDD features__
+__1. Adding Mock & BDD features__
+__2. Transform DAO & Service to interfaces-based___
 
 # Latest Updates
 
