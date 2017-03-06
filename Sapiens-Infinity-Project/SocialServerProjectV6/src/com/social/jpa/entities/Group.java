@@ -3,7 +3,19 @@ package com.social.jpa.entities;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.social.jpa.utils.DBRef;
 
@@ -58,8 +70,8 @@ public class Group {
 	public Set<Post> getPosts() {
 		return posts;
 	}
-
-    @ManyToMany(fetch=FetchType.LAZY)
+	
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name=DBRef.GROUPS_USERS_TABLE, 
             joinColumns=
             @JoinColumn(name=DBRef.GROUP_ID, referencedColumnName=DBRef.GROUP_ID,  nullable = false, updatable = true),

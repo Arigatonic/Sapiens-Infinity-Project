@@ -2,9 +2,7 @@ package com.social.aspects;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -46,11 +44,6 @@ public class LoggingAspect {
 		logMessage.append(" ms");
 		log.info(logMessage.toString());
 		return retVal;
-	}
-
-	@AfterReturning(pointcut = "execution(* com.social.services..*.*(..))", returning = "retVal")
-	public void logAfterMethod(JoinPoint joinPoint, Object retVal) {
-		System.out.println("******" + retVal.toString());
 	}
 
 }

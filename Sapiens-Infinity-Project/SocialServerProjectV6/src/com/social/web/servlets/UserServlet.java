@@ -1,18 +1,14 @@
 package com.social.web.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.google.gson.Gson;
-import com.social.jpa.utils.BeansConfigure;
 import com.social.web.utils.ServiceConrol;
 
 
@@ -56,16 +52,13 @@ public class UserServlet extends HttpServlet {
 		try {
 
 			switch (ctrl.getDefinedService()) {
-			case UNRELATED:
-				System.out.println("aaaaaa");
-				
+			case UNRELATED:				
 				if (ctrl.getID() != null){
 					res = gsn.toJson(ctrl.getSNS().getUser(ctrl.getID()));
 				} else {
 					res = gsn.toJson(ctrl.getSNS().getAllUsers());
 				}
 				
-				System.out.println("bbbbb");
 				break;
 			case GROUPS:              		
 				res = gsn.toJson(ctrl.getSNS().getUserGroups(ctrl.getID()));
