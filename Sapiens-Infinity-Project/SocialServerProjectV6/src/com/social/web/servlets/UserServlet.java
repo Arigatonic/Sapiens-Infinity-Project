@@ -7,7 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.google.gson.Gson;
+import com.social.jpa.utils.BeansConfigure;
 import com.social.web.utils.ServiceConrol;
 
 
@@ -36,6 +41,7 @@ public class UserServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
+	
 	public UserServlet() {
 		super();
 	}    
@@ -44,17 +50,22 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		ServiceConrol ctrl = new ServiceConrol(request, response);
+				
 		String res = null;
 
 		try {
 
 			switch (ctrl.getDefinedService()) {
 			case UNRELATED:
+				System.out.println("aaaaaa");
+				
 				if (ctrl.getID() != null){
 					res = gsn.toJson(ctrl.getSNS().getUser(ctrl.getID()));
 				} else {
 					res = gsn.toJson(ctrl.getSNS().getAllUsers());
 				}
+				
+				System.out.println("bbbbb");
 				break;
 			case GROUPS:              		
 				res = gsn.toJson(ctrl.getSNS().getUserGroups(ctrl.getID()));
@@ -79,7 +90,7 @@ public class UserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		ServiceConrol ctrl = new ServiceConrol(request, response);
-
+		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 

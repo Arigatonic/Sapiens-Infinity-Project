@@ -24,13 +24,11 @@ public class SocialNetworkService {
 
 	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() throws IllegalArgumentException{
-
 		return (List<User>) dao.getAllUsers();
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Group> getAllGroups() throws IllegalArgumentException{
-
 		return (List<Group>) dao.getAllGroups();
 	}
 

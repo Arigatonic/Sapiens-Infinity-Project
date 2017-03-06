@@ -3,9 +3,6 @@ package com.social.dao;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.social.jpa.entities.*;
@@ -134,11 +131,11 @@ public class SocialDao {
 			
 	
     // Create transaction
-    private void startTransaction(){
+    public void startTransaction(){
     	em.getTransaction().begin();
     }
     
-    private void closeTransaction(){
+    public void closeTransaction(){
 		em.getTransaction().commit();
     }
 
