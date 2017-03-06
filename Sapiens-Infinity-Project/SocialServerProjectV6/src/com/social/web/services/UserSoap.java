@@ -5,13 +5,7 @@ import java.io.StringWriter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import com.google.gson.Gson;
 import com.social.jpa.entities.User;
-import com.social.jpa.utils.JPAConfigure;
-import com.social.services.SocialNetworkService;
 import com.social.web.utils.ServiceConrol;
 
 //an Example for SOAP service request.

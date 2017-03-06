@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.google.gson.Gson;
-import com.social.jpa.utils.JPAConfigure;
+import com.social.jpa.utils.BeansConfigure;
 import com.social.services.DefinedServices;
 import com.social.services.SocialNetworkService;
 
@@ -29,7 +29,7 @@ public class ServiceConrol {
 	Gson gsn = new Gson();
 
 	DefinedServices requestedService;
-	private static final ApplicationContext ctx = new AnnotationConfigApplicationContext(JPAConfigure.class);
+	private static final ApplicationContext ctx = new AnnotationConfigApplicationContext(BeansConfigure.class);
 	
 	public ServiceConrol() throws IOException {
 

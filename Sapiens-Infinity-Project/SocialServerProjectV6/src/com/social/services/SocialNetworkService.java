@@ -4,12 +4,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.social.dao.SocialDao;
 import com.social.jpa.entities.Group;
 import com.social.jpa.entities.Post;
 import com.social.jpa.entities.User;
 
 // this class will validate data before executing queries through dao
+@Transactional
+@Service
 public class SocialNetworkService {
 
 	SocialDao dao;
@@ -21,20 +26,17 @@ public class SocialNetworkService {
 	public SocialDao getSocialDao(SocialDao dao){
 		return dao;
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() throws IllegalArgumentException{
-
 		return (List<User>) dao.getAllUsers();
 	}
-
 	@SuppressWarnings("unchecked")
 	public List<Group> getAllGroups() throws IllegalArgumentException{
-
 		return (List<Group>) dao.getAllGroups();
 	}
 
-	//returns UserID	
+	//returns UserID
 	public int createUser(String firstName, String lastName){		
 
 		if (!firstName.matches("[a-zA-Z]+") || !lastName.matches("[a-zA-Z]+")){
@@ -46,7 +48,6 @@ public class SocialNetworkService {
 
 		return usr.getUserID();
 	}
-
 	public User getUser(int usrID) throws IllegalArgumentException{
 
 		User usr = dao.getUser(usrID);		
@@ -54,7 +55,6 @@ public class SocialNetworkService {
 
 		return usr;
 	}
-
 	public Post getPost(int pstID){
 
 		Post pst = dao.getPost(pstID);
@@ -70,7 +70,6 @@ public class SocialNetworkService {
 		dao.putGroup(grp);	
 		return grp.getGroupID();
 	}
-
 	public Group getGroup(int grpID) throws IllegalArgumentException {
 
 		Group grp = dao.getGroup(grpID);
@@ -97,7 +96,6 @@ public class SocialNetworkService {
 
 		return pst.getPostID();
 	}
-
 	public void addUserToGroup(int usrID, int grpID) throws IllegalArgumentException {
 
 		User usr = dao.getUser(usrID);
@@ -114,7 +112,6 @@ public class SocialNetworkService {
 
 	}
 
-
 	public Set<Post> getGroupPosts(int grpID){
 
 		Group grp = dao.getGroup(grpID);
@@ -128,7 +125,6 @@ public class SocialNetworkService {
 
 		return psts;
 	}
-
 	public List<Post> getUserPosts(int usrID)throws IllegalArgumentException{
 
 		User usr = dao.getUser(usrID);
@@ -143,15 +139,15 @@ public class SocialNetworkService {
 		return psts;
 	}
 
-
 	public Set<Group> getUserGroups(int usrID) throws IllegalArgumentException{
 
 		User usr = dao.getUser(usrID);
 		this.userCheck(usr);
-		return usr.getGroups();	    	
+			
+		return dao.getUserGroups(usrID);	    	
 
 	}
-
+	
 	public Set<User> getGroupUsers(int grpID) throws IllegalArgumentException {
 
 		Group grp = dao.getGroup(grpID);
@@ -177,7 +173,6 @@ public class SocialNetworkService {
 		dao.removeUserFromGroup(usr, grp);
 
 	}
-
 	public void deletePost(int pstID) throws IllegalArgumentException{
 
 		Post pst = dao.getPost(pstID);	
@@ -185,7 +180,6 @@ public class SocialNetworkService {
 		dao.deletePost(pst);
 
 	}
-
 	public void deleteUser(int usrID){
 
 		User usr = dao.getUser(usrID);		
@@ -199,7 +193,7 @@ public class SocialNetworkService {
 
 		dao.deleteUser(usr);
 	}
-
+	
 	public void deleteGroup(int grpID){
 
 
@@ -217,13 +211,13 @@ public class SocialNetworkService {
 		dao.deleteGroup(grp);
 
 	}
-
+	
 	private void userCheck(User usr){
 		if (usr == null || usr.isActive() == false){
 			throw new IllegalArgumentException("User does not exist");
 		}
 	}
-
+	
 	private void groupCheck(Group grp){
 		if (grp == null){
 			throw new IllegalArgumentException("group does not exist");

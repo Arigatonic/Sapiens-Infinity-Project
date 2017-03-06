@@ -10,17 +10,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.google.gson.Gson;
-import com.social.dao.JPAConfigure;
-import com.social.dao.SocialDao;
-import com.social.jpa.Group;
-import com.social.jpa.Post;
-import com.social.jpa.User;
+import com.social.jpa.entities.Group;
+import com.social.jpa.entities.Post;
+import com.social.jpa.entities.User;
+import com.social.jpa.utils.BeansConfigure;
 import com.social.services.SocialNetworkService;
 
 public class IsolatedTest {
 
 	ApplicationContext ctx = 
-			new AnnotationConfigApplicationContext(JPAConfigure.class);
+			new AnnotationConfigApplicationContext(BeansConfigure.class);
 
 	SocialNetworkService sd;
 

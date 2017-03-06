@@ -5,7 +5,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.social.jpa.entities.*;
+import com.social.jpa.entities.Group;
+import com.social.jpa.entities.Post;
+import com.social.jpa.entities.User;
 
 public class MainTest {
 	

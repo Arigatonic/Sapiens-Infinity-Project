@@ -1,14 +1,11 @@
 package com.social.junit;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,13 +13,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.google.gson.Gson;
-import com.social.jpa.entities.*;
-import com.social.jpa.utils.JPAConfigure;
+import com.social.jpa.entities.Group;
+import com.social.jpa.entities.Post;
+import com.social.jpa.entities.User;
+import com.social.jpa.utils.BeansConfigure;
 import com.social.services.SocialNetworkService;
 
 public class ServiceBasicTest {
 	
-	private ApplicationContext ctx;
+	private final static ApplicationContext ctx = new AnnotationConfigApplicationContext(BeansConfigure.class);
 	SocialNetworkService sd;
 	
 	Gson gsn = new Gson();	
@@ -49,9 +48,7 @@ public class ServiceBasicTest {
 	@Before
 	public void initialize(){
 		
-		ctx = new AnnotationConfigApplicationContext(JPAConfigure.class);		
-		this.sd = ctx.getBean(SocialNetworkService.class);
-		
+		this.sd = ctx.getBean(SocialNetworkService.class);		
 	}
 
 	
@@ -112,19 +109,17 @@ public class ServiceBasicTest {
 		User usrRes = sd.getUser(usrIDinDB);
 		Group grpRes = sd.getGroup(grpIDinDB);		
 		
-		Set<Group> grpsFromUser = sd.getUserGroups(usrIDinDB);
 		Set<User> usrsFromGroup =  sd.getGroupUsers(grpIDinDB);
-		
 						
 		assertEquals(usrRes.getFirstName(), usrSample.getFirstName());
 		assertEquals(usrRes.getLastName(), usrSample.getLastName());
 		assertEquals(grpRes.getGroupName(), grpSample.getGroupName());
 		assertEquals(postSample.getUser().getFirstName(), usrRes.getFirstName());		
-		assertEquals(1, grpRes.getUsers().size());		
+		assertEquals(1, grpRes.getUsers().size());	
+		Set<Group> grpsFromUser = sd.getUserGroups(usrIDinDB);
 		assertEquals(1, grpsFromUser.size());	
 		
-		//checking usrsFromGroup
-		
+		//checking usrsFromGroup		
 		assertEquals(1, usrsFromGroup.size());
 		assertEquals(usrRes.getFirstName(), new ArrayList<User>(usrsFromGroup).get(0).getFirstName());
 	}
@@ -153,6 +148,7 @@ public class ServiceBasicTest {
 		Set<User> usrsFromGroup =  sd.getGroupUsers(grpIDinDB);
 		assertEquals(1, usrsFromGroup.size());
 		sd.removeUserFromGroup(usrIDinDB,grpIDinDB);
+		usrsFromGroup = sd.getGroupUsers(grpIDinDB);
 		assertEquals(0, usrsFromGroup.size());
 	}
 	
