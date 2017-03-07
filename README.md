@@ -1,7 +1,7 @@
 Author: Lior G  
 
 # Overview
-The basic idea is to a create a Learning-Purposed server that permits users to create and access social groups and sharing their posts. The project uses Apache Tomcat web-container for REST API & SOAP. It uses Frameworks like: Hibernate, Spring AOP, Spring IOC & JUnit. It uses mySQL as a database. It is also relating fundamental Java principles of various Design Patterns, OOP and more. 
+This is a Self-Learning-Purposed server that permits users to create and access social groups and sharing their posts through REST API implemented in Apache Tomcat web-container. It's implementation is using Frameworks like: Hibernate(IOC/AOP), Spring & JUnit. The Project is also relating fundamental Java principles like various Design Patterns, OOP and more. 
 
 # Project References: 
 
