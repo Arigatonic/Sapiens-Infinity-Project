@@ -1,5 +1,13 @@
 Author: Lior G  
 
+# Overview
+Social Network Project. The idea is to a create a server that permits users to create and access social groups and to share with them ideas using posts. 
+
+# Project References: 
+
+Initial Class Diagram: https://drive.google.com/file/d/0B2NNxddUDrBnNk03U2kyR2JVZlk/view?usp=sharing
+Initial Data Diagram: https://drive.google.com/file/d/0B2NNxddUDrBnOTNsY3YzeFFkcVk/view?usp=sharing  
+
 #Next Objective: 
 __1. Adding Mock & BDD features__ </br>
 __2. Transform DAO & Service to interfaces-based__
@@ -31,12 +39,5 @@ __2. Transform DAO & Service to interfaces-based__
 * Managing bi-directional relationship. 
 
 
-# Overview
-Social Network Project. The idea is to a create a server that permits users to create and access social groups and to share with them ideas using posts. 
-
-# Project References: 
-
-Initial Class Diagram: https://drive.google.com/file/d/0B2NNxddUDrBnNk03U2kyR2JVZlk/view?usp=sharing
-Initial Data Diagram: https://drive.google.com/file/d/0B2NNxddUDrBnOTNsY3YzeFFkcVk/view?usp=sharing  
 
 
