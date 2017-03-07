@@ -1,7 +1,7 @@
 Author: Lior G  
 
 # Overview
-Social Network Project. The idea is to a create a server that permits users to create and access social groups and to share with them ideas using posts. 
+The basic idea is to a create a Learning-Purposed server that permits users to create and access social groups and sharing their posts. The project uses Apache Tomcat web-container for REST API & SOAP. It covers Frameworks like: Hibernate, Spring AOP, Spring IOC & JUnit. It uses mySQL as a database. And in General - it relating fundamental Java principles of various Design Patterns, OOP and more. 
 
 # Project References: 
 
