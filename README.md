@@ -1,7 +1,7 @@
 Author: Lior G  
 
 # Overview
-This is a Self-Learning-Purposed server that permits users to create and access social groups and sharing their posts through REST API implemented in Apache Tomcat web-container. It's implementation is using Frameworks like: Hibernate(IOC/AOP), Spring & JUnit. The Project is also relating fundamental Java principles like various Design Patterns, OOP and more. 
+This is a Self-Learning-Purposed server that permits users to create and access social groups and sharing their posts through REST API implemented in Apache Tomcat web-container. It's implementation is using Frameworks like: Hibernate, Spring(IOC/AOP) & JUnit. The Project is also relating fundamental Java principles like various Design Patterns, OOP and more. 
 
 # Project References: 
 
