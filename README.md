@@ -1,7 +1,7 @@
 Author: Lior G  
 
 # Overview
-This is a Self-Learning-Purposed server that permits users to create and access social groups and sharing their posts through REST API implemented in Apache Tomcat web-container. It's implementation is using Frameworks like: Hibernate, Spring(IOC/AOP) & JUnit. The Project is also relating fundamental Java principles like various Design Patterns, OOP and more. 
+This is a Self-Learning-Purposed server that permits users to create and access social groups and sharing their posts through REST API & SOAP implemented using Apache Tomcat web-container. It's implementation is using Frameworks like: Hibernate, Spring(IOC/AOP) & JUnit. The Project is also relating fundamental Java principles like various Design Patterns, OOP and more. 
 
 # Project References: 
 
@@ -19,7 +19,7 @@ __2. Transform DAO & Service to interfaces-based__
 * Logger Base Aspect is now have been issued. 
 
 ##04.03.17:##
-* User SOAP Web Service has been issued. Currently provide getUser(int) method. 
+* getUser SOAP Web Service has been issued. Currently provide getUser(int) method. 
 * SOAP is using JAXB marshalling to return information. 
 
 ##02.03.17:##
