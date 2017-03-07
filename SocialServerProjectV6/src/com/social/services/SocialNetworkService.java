@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,21 +13,13 @@ import com.social.jpa.entities.Group;
 import com.social.jpa.entities.Post;
 import com.social.jpa.entities.User;
 
-// this class will validate data before executing queries through dao
 @Transactional
 @Service
 public class SocialNetworkService {
 
+	@Autowired
 	SocialDao dao;
 
-	public void setSocialDao(SocialDao dao){
-		this.dao = dao;
-	}
-
-	public SocialDao getSocialDao(SocialDao dao){
-		return dao;
-	}
-	
 	@SuppressWarnings("unchecked")
 	public List<User> getAllUsers() throws IllegalArgumentException{
 		return (List<User>) dao.getAllUsers();
