@@ -15,7 +15,7 @@ __2. Transform DAO & Service to interfaces-based__
 # Latest Updates
 
 ##06.03.17
-* Spring is now fully supporting JPA (!)
+* Spring is now fully supporting JPA 
 * Logger Base Aspect is now have been issued. 
 
 ##04.03.17:##
