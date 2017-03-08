@@ -71,14 +71,14 @@ public class Group {
 		return posts;
 	}
 	
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name=DBRef.GROUPS_USERS_TABLE, 
             joinColumns=
             @JoinColumn(name=DBRef.GROUP_ID, referencedColumnName=DBRef.GROUP_ID,  nullable = false, updatable = true),
             inverseJoinColumns=
             @JoinColumn(name=DBRef.USER_ID, referencedColumnName=DBRef.USER_ID, nullable = false, updatable = true))    
 	public Set<User> getUsers() {
-		return users;
+		return new HashSet<>(users);
 	}
 	
     @Override

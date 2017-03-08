@@ -1,6 +1,7 @@
 package com.social.services;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -145,9 +146,10 @@ public class SocialNetworkService {
 
 		Group grp = dao.getGroup(grpID);
 		this.groupCheck(grp);
-		Set<User> usrs = grp.getUsers();		
+		
+		Set<User> usrs = grp.getUsers();	
 
-		return usrs;
+		return new HashSet<>(usrs);
 	} 
 
 	//delete data	
