@@ -14,11 +14,11 @@ __Transform DAO & Service to interfaces-based__</br>
 
 # Latest Updates
 
-##09.03.17
+##09.03.17:##
 * HTTP request & respons have been Mocked in tests package. 
 * BDD (Cucumber) test sample has been issued. 
 
-##06.03.17
+##06.03.17:##
 * Spring is now fully supporting JPA 
 * Logger Base Aspect is now have been issued. 
 
