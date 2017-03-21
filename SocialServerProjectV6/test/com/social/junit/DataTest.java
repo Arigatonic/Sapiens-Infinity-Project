@@ -23,6 +23,8 @@ public class DataTest {
 	
 	private final static ApplicationContext ctx = new AnnotationConfigApplicationContext(BeansConfigure.class);
 	SocialNetworkService sd;
+
+	int testGit;
 	
 	Gson gsn = new Gson();	
 		
